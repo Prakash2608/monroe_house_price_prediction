@@ -7,6 +7,8 @@ from src.logger.logging import logging
 from src.exceptions.exception import customexception
 
 from sklearn.metrics import r2_score, mean_absolute_error,mean_squared_error
+from sklearn.model_selection import ShuffleSplit, cross_val_score, GridSearchCV
+
 
 def save_object(file_path, obj):
     try:
@@ -51,4 +53,28 @@ def load_object(file_path):
             return pickle.load(file_obj)
     except Exception as e:
         logging.info('Exception Occured in load_object function utils')
+        raise customexception(e,sys)
+    
+    
+def find_best_model_using_gridsearchcv(X, y, models, scoring, refit_metric):
+    try:
+        logging.info("Grid search cv training started")
+        
+        scores = []
+        cv = ShuffleSplit(n_splits=5, test_size=0.2, random_state=0)
+        for algo_name, config in models.items():
+            gs =  GridSearchCV(config['model'], config['params'],scoring = scoring, refit=refit_metric, cv=cv, return_train_score=False)
+            gs.fit(X,y)
+            scores.append({
+                'model': algo_name,
+                'best_score': gs.best_score_,
+                'best_params': gs.best_params_
+            })
+        logging.info("Grid search cv training completed")
+            
+        return scores
+            
+        
+    except Exception as e:
+        logging.info('Exception occured during grid search cross validation')
         raise customexception(e,sys)

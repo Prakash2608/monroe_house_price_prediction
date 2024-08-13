@@ -6,6 +6,7 @@ import pandas as pd
 
 from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import DataTransformation
+from src.components.model_training import ModelTrainer
 
 
 data_ingestion = DataIngestion()
@@ -15,3 +16,6 @@ raw_data_path = data_ingestion.initiate_data_ingestion()
 data_transformation = DataTransformation()
 
 train_df, test_df = data_transformation.initialize_data_transformation(raw_data_path)
+
+model_trainer_obj = ModelTrainer()
+model_trainer_obj.initiate_model_training(train_df, test_df)
