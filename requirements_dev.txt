@@ -3,6 +3,8 @@ numpy
 scikit-learn
 seaborn
 from-root
+mlflow==2.2.2
+dagshub
 
 
 -e .
