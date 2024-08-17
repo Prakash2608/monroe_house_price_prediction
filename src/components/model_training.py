@@ -77,7 +77,7 @@ class ModelTrainer:
             scoring = ['neg_mean_squared_error', 'neg_median_absolute_error', 'r2']
             refit_metric = 'r2'
             
-            report = find_best_model_using_gridsearchcv(np.concatenate((X_train,X_test), axis =0), np.concatenate((y_train,y_test), axis =0),
+            report = find_best_model_using_gridsearchcv(X_train, y_train,
                                                         models, scoring, refit_metric )
             
             score = {result['model']: result['best_score'] for result in report}
@@ -98,7 +98,7 @@ class ModelTrainer:
             best_model = models[best_model_name]['model']
             
             best_model.set_params(**best_params[0])
-            best_model.fit(np.concatenate((X_train, X_test), axis=0), np.concatenate((y_train, y_test), axis=0))
+            best_model.fit(X_train, y_train)
             
             logging.info(f'Best Model: {best_model_name} with a score of {best_model_score}')
             

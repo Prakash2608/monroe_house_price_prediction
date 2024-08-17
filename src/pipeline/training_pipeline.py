@@ -7,6 +7,7 @@ import pandas as pd
 from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import DataTransformation
 from src.components.model_training import ModelTrainer
+from src.components.model_evaluation import ModelEvaluation
 
 
 data_ingestion = DataIngestion()
@@ -19,3 +20,6 @@ train_df, test_df = data_transformation.initialize_data_transformation(raw_data_
 
 model_trainer_obj = ModelTrainer()
 model_trainer_obj.initiate_model_training(train_df, test_df)
+
+model_eval_obj = ModelEvaluation()
+model_eval_obj.initiate_model_evaluation(train_df,test_df)
