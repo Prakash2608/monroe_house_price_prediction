@@ -86,14 +86,10 @@ class ModelTrainer:
             print('\n====================================================================================\n')
             logging.info(f'Model Report : {score}')
             
-            # To get best model score from dictionary 
             best_model_score = max(score.values())
             best_model_name = [key for key, value in score.items() if value == best_model_score][0]
             best_params = [result['best_params']  for result in report if result['model']==best_model_name]
 
-            # best_model_name = list(score.keys())[
-            #     list(score.values()).index(best_model_score)
-            # ]
             
             best_model = models[best_model_name]['model']
             
@@ -107,8 +103,6 @@ class ModelTrainer:
                  obj=best_model
             )
             
-            # best_model = models[best_model_name]['model']
-            # best_params = models[best_model_name]['params']
             
         except Exception as e:
             logging.info('Exception occured at Model Training')

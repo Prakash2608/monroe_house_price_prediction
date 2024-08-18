@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/praka/my_personal_project/monroe_house_price_prediction/mlruns/0/4640d0a5083e49fbbd5823a242deaaf5/artifacts
+end_time: 1723887045261
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4640d0a5083e49fbbd5823a242deaaf5
+run_name: stylish-goat-4
+run_uuid: 4640d0a5083e49fbbd5823a242deaaf5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723887040500
+status: 3
+tags: []
+user_id: praka

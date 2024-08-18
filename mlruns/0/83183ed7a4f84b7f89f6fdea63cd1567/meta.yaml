@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/praka/my_personal_project/monroe_house_price_prediction/mlruns/0/83183ed7a4f84b7f89f6fdea63cd1567/artifacts
+end_time: 1723897359544
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 83183ed7a4f84b7f89f6fdea63cd1567
+run_name: dashing-ant-681
+run_uuid: 83183ed7a4f84b7f89f6fdea63cd1567
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723897354188
+status: 3
+tags: []
+user_id: praka

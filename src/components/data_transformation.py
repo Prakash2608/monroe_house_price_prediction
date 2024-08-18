@@ -8,10 +8,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
-from sklearn.compose import ColumnTransformer
-from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler, OrdinalEncoder
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.model_selection import train_test_split
 
@@ -146,7 +143,7 @@ class LocationOneHotEncoding(BaseEstimator, TransformerMixin):
         return self
     
     def transform(self, X):
-        location_dummies = pd.get_dummies(X['location'])
+        location_dummies = pd.get_dummies(X.location)
         X = pd.concat([X, location_dummies.drop('other', axis = 'columns')], axis='columns')
         X = X.drop('location',axis='columns')
         
@@ -175,11 +172,6 @@ class DataTransformation:
                 ('location_one_hot_encoding', LocationOneHotEncoding())
             ])
             
-            # preprocessor = ColumnTransformer([
-            #     ('pipeline', pipeline)
-            # ]
-            # )
-            
             return pipeline
             
         except Exception as e:
@@ -197,6 +189,7 @@ class DataTransformation:
             preprocessing_obj = self.get_data_transformation()
             
             preprocessed_df = preprocessing_obj.fit_transform(df)
+            
             logging.info("Preprocessing the data is completed")
             target_column_name = 'price'
             
@@ -221,7 +214,6 @@ class DataTransformation:
                 file_path=self.data_transformation_config.preprocessor_obj_file_path,
                 obj=preprocessing_obj
             )
-            
             
             return (
                 train_df, 

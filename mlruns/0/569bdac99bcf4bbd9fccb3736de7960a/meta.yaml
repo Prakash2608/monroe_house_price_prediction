@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/praka/my_personal_project/monroe_house_price_prediction/mlruns/0/569bdac99bcf4bbd9fccb3736de7960a/artifacts
+end_time: 1723972582229
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 569bdac99bcf4bbd9fccb3736de7960a
+run_name: agreeable-skink-677
+run_uuid: 569bdac99bcf4bbd9fccb3736de7960a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723972576207
+status: 3
+tags: []
+user_id: praka
